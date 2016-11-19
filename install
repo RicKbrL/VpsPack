@@ -1,0 +1,83 @@
+#!/bin/bash
+
+echo -e "\033[41;1;37m    VpsPack Instalando   \033[0m"
+echo -e "\033[1;30mLoading...\033[0m"
+
+apt-get install wget -y > /dev/null 2>/dev/null
+yum install wget -y > /dev/null 2> /dev/null
+
+if [ $(id -u) -eq 0 ]
+then
+	clear
+else
+	if echo $(id) |grep sudo > /dev/null
+	then
+	clear
+	echo "Voce não é root mais"
+	echo "Seu usuario esta no grupo sudo"
+	echo -e "Para virar root execute \033[1;31msudo su\033[0m"
+	exit
+	else
+	clear
+	echo -e "Vc nao esta como usuario root, nem com seus direitos (sudo)\nPara virar root execute \033[1;31msu\033[0m e digite sua senha root"
+	exit
+	fi
+fi
+
+wget ricknet.hol.es/VpsPack/limit 2>/dev/null
+mv limit /bin
+chmod +x /bin/limit
+
+wget ricknet.hol.es/VpsPack/UserBack 2>/dev/null
+mv UserBack /bin
+chmod +x /bin/UserBack
+
+wget ricknet.hol.es/VpsPack/Usercreate 2>/dev/null
+mv Usercreate /bin
+chmod +x /bin/Usercreate
+
+wget ricknet.hol.es/VpsPack/VpsPack 2>/dev/null
+mv VpsPack /bin
+chmod +x /bin/VpsPack
+
+wget ricknet.hol.es/VpsPack/Monitoring 2>/dev/null
+mv Monitoring /bin
+chmod +x /bin/Monitoring
+
+wget ricknet.hol.es/VpsPack/UserRedefine 2>/dev/null
+mv UserRedefine /bin
+chmod +x /bin/UserRedefine
+
+wget ricknet.hol.es/VpsPack/Detalhes 2>/dev/null
+mv Detalhes /bin
+chmod +x /bin/Detalhes
+
+wget ricknet.hol.es/VpsPack/add-host 2>/dev/null
+mv add-host /bin
+chmod +x /bin/add-host
+
+wget ricknet.hol.es/VpsPack/install-addhosts 2>/dev/null
+mv install-addhosts /bin
+chmod +x /bin/install-addhosts
+
+wget ricknet.hol.es/VpsPack/firewall-block 2>/dev/null
+mv firewall-block /bin
+chmod +x /bin/firewall-block
+
+wget ricknet.hol.es/VpsPack/ResetFirewall 2>/dev/null
+mv ResetFirewall /bin
+chmod +x /bin/ResetFirewall
+
+wget ricknet.hol.es/VpsPack/pirat.ant 2> /dev/null
+pirat=$(cat pirat.ant)
+echo "$pirat" > /usr/system.cer
+pirat=0
+rm pirat.ant
+
+wget ricknet.hol.es/VpsPack/piratcp.ant 2> /dev/null
+piratcp=$(cat piratcp.ant)
+echo "$piratcp" > /usr/local/systemd.logg
+piratcp=0
+rm piratcp.ant
+
+echo -e "\033[1;32mInstalaçao terminada execute \033[1;31mVpsPack \033[0m"
