@@ -55,7 +55,7 @@ case $opcao in
  9)
   Monitoring;;
  10)
-  Userdetalhes;; 
+  Detalhes;; 
  11)
   Desinstalar;;
  *)
