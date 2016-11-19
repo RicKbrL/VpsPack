@@ -1,0 +1,32 @@
+#!/bin/bash
+
+clear
+echo -e "\033[41;1;37mUserback options:\033[0m
+\033[1;36m1) Deletar usuario
+2) Deletar e desconectar todos do usuario
+3) Desconectar todos do usuario\033[0m"
+read -p "opção: " option
+
+ if [ $option -eq 1 ]; then
+ read -p "Qual o nome do usuario: " name
+ userdel --force $name > /dev/null 2>/dev/null
+ echo "Usuario $name foi deletado"
+ exit
+ fi
+
+ if [ $option -eq 2 ]; then
+ read -p "Qual o nome do usuario: " name
+ userdel --force $name > /dev/null 2>/dev/null
+ kill -9 `ps aux |grep -vi '[a-z]$name' |grep -vi '$name[a-z]' |grep -v '[1-9]$name' |grep -v '$name[1-9]' |grep $name |awk {'print $2'}` 2> /dev/null
+ echo "Usuario $name foi deletado e parado"
+ exit
+ fi
+
+ if [ $option -eq 3 ]; then
+ read -p "Qual o nome do usuario: " name
+ kill -9 `ps aux |grep -vi '[a-z]$name' |grep -vi '$name[a-z]' |grep -v '[1-9]$name' |grep -v '$name[1-9]' |grep $name |awk {'print $2'}` 2> /dev/null
+ echo "Usuario $name foi parado"
+ exit
+ fi
+
+echo "Essa opçao não existe"
