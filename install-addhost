@@ -1,0 +1,14 @@
+#!/bin/bash
+losquid=$(ls /etc |grep squid)
+if [ $(ls /etc |grep squid |wc -l) -eq 0 ]; then
+echo -e "\033[1;31mNão foi possivel achar o diretorio squid
+Talves ele não esteja instalado\033[0m"
+exit
+fi
+squid=$(cat /etc/$losquid/squid.conf)
+echo 'acl vpspacketaccept dstdomain "/etc/payloads"' > /etc/$losquid/squid.conf
+echo "http_access allow vpspacketaccept" >> /etc/$losquid/squid.conf
+echo "$squid" >> /etc/$losquid/squid.conf
+service squid restart 1> /dev/null 2> /dev/null
+service squid3 restart 1> /dev/null 2> /dev/null
+echo -e "\033[1;32mTudo terminado. Basta usar o add-host e adicionar novos dominios\033[0m"
