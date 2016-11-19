@@ -1,0 +1,65 @@
+#!/bin/bash
+echo -e "\033[40;1;37m VpsPack Detalhes \033[0m
+\033[1;33mSempre execute com o usuario root
+Vc pode virar root com \033[1;31msu \033[1;33mou \033[1;31msudo su"
+
+echo -e "\033[1;32m
+Ferramenta Limit:\033[1;36m
+
+Essa ferramenta monitora o numero de conexoes de usuarios que teve seu limite aplicado
+Use essa ferramenta pelo VpsPack (recomendado)
+Tbm pode a usar com apenas um comando \033[1;33mlimit usuario limite\033[0m
+\033[1;36mAo exceder o limite as conexoes excedentes serao desconectados !!
+ 
+\033[1;32mUserCreate:
+
+\033[1;36mObjetivo criar usuarios de forma rapida e aplicando uma validade em dias
+Para executar comando: Usercreate 
+Ou execute pelo VpsPack
+
+\033[1;32mUserBack:
+
+\033[1;36mObjetivo: Escolher entre deletar usuarios Forçar o deletamento e tambem desconectar todos de um usuario.
+Para executar: UserBack
+Ou execute pelo VpsPack.
+
+\033[1;32mUserRedefine:
+
+\033[1;36mFerramenta para redefinir o limite de logins de um usuario ou redefinir a data de expiraçao de um usuario.
+Para executar: UserRedefine
+Ou execute pelo VpsPack
+
+\033[1;32mInstall-addhosts & add-hosts:
+
+\033[1;36mA ferramenta Install-addhosts so deve ser usada uma vez ela prepara diretorios para a ferramenta add-hosts
+
+Ferramenta add-hosts ela adiciona novos dominios (hosts payloads) em qualquer tipo de squid.conf
+
+Execute pelo VpsPack
+
+\033[1;32mFirewall-block & firewall-reset:
+
+\033[1;36mFerramenta firewall-block faz o bloqueio torrent e protocolo icmp
+
+Firewall-reset desfaz todas as regras iptables desabilitando qualquer bloqueio no firewall
+
+ATENÇAO ESSAS DUAS FERRAMENTAS PODEM CAUSAR PROBLEMAS EXECUTE POR SUA CONTA
+MUITAS EMPRESAS USAM O IPTABLES EM SUAS MAQUINAS VIRTUAIS E ESSE NÃO PODE SER ALTERADO
+
+Execute pelo VpsPack
+
+\033[1;32mMonitoring:
+
+\033[1;36mImportante ferramenta que le mostra quantas conexoes em cada usuario !!
+
+OUTROS:
+PARA RETIRAR O LIMITE DE CONEXOES DE UM USUARIO OU DE TODOS APAGUE
+
+rm /etc/usuarios/usuario.sh
+rm /etc/tempo/usuario.sh
+
+Ou retire o limite de todos
+
+rm -r /etc/tempo /etc/usuarios
+
+\033[40;1;37m  FEITO POR LUIZ HENRIQUE (RICKNETFREE) \033[0m"
