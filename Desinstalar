@@ -1,0 +1,17 @@
+#!/bin/bash
+echo "Desinstalando..."
+rm /bin/VpsPack
+rm /bin/UserBack
+rm -r /etc/usuarios /etc/tempo
+rm /bin/Usercreate
+rm /bin/UserRedefine
+rm /bin/Monitoring
+rm /bin/Detalhes
+rm /bin/limit
+rm /etc/firewall-block
+rm /etc/ResetFirewall
+rm /etc/add-host
+rm /etc/install-addhost
+rm /etc/Desinstalar
+clear
+echo "complete"
