@@ -29,7 +29,8 @@ echo -e "\033[1;32mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\03
 [7] Istall-addhosts \033[1;30m(Faz a preparaçao para add-host)\033[1;33m
 [8] Add-host \033[1;30m(Adicionar hosts aceitos pelo squid )\033[1;33m
 [9] Monitoring \033[1;30m(IMPORTANTE monitorar conexões por usuarios)\033[0m\033[1;33m
-[10] Detalhes \033[1;30m(Detalhes sobre o VpsPack)\033[0m"
+[10] Detalhes \033[1;30m(Detalhes sobre o VpsPack)\033[1;33m
+[11] Desinstalar \033[1;30m(Remover o VpsPack)\033[0m"
 read -p ": " opcao
 
 case $opcao in
@@ -48,13 +49,15 @@ case $opcao in
  6)
   ResetFirewall;;
  7)
-  install-addhosts;;
+  install-addhost;;
  8)
   add-host;;
  9)
   Monitoring;;
  10)
   Userdetalhes;; 
+ 11)
+  Desinstalar;;
  *)
   id > /dev/null 2> /dev/null
 esac
