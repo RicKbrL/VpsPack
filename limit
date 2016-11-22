@@ -4,10 +4,10 @@ mkdir /etc/usuarios 1>/dev/null 2>/dev/null
 userrc=$1
 sustenido=$
 echo "#!/bin/bash" > /etc/usuarios/$1.sh
-echo ""$1"t=wwf(ps aux |grep -vi '[a-z]$userrc' |grep -vi '$userrc[a-z]' |grep -v '[1-9]$userrc' |grep -v '$userrc[1-9]' |grep $userrc |grep $userrc |grep 'sshd' |cut -d' ' -f1 |grep $userrc |wc -l)" >> /etc/usuarios/$1.sh
+echo ""$1"t=wwf(ps aux |grep -vi [a-z]$userrc |grep -vi $userrc[a-z] |grep -v [1-9]$userrc |grep -v $userrc[1-9] |grep $userrc |grep 'sshd' |awk {'print $1'} |grep $userrc |wc -l)" >> /etc/usuarios/$1.sh
 echo "if [ wwf"$1"t -gt $2 ]" >> /etc/usuarios/$1.sh
 echo "then" >> /etc/usuarios/$1.sh
-echo $1"pidi=wwf(ps aux |grep -vi '[a-z]$1' |grep -vi '$1[a-z]' |grep -v '[1-9]$1' |grep -v '$1[1-9]' |grep $1 |grep 'sshd' |grep $1 |awk {'print "$sustenido"2'})" >> /etc/usuarios/$1.sh
+echo $1"pidi=wwf(ps aux |grep -vi [a-z]$1 |grep -vi $1[a-z] |grep -v [1-9]$1 |grep -v $1[1-9] |grep $1 |grep sshd |grep $1 |awk {'print "$sustenido"2'})" >> /etc/usuarios/$1.sh
 echo "echo wwf"$1"pidi >> /etc/usuarios/pid$userrc" >> /etc/usuarios/$1.sh
 echo $1"pid=wwf(cat -n /etc/usuarios/pid$userrc |awk ' "$sustenido"1 > $2 { print "$sustenido"3 }')" >> /etc/usuarios/$1.sh
 echo "kill -9 wwf"$1"pid" >> /etc/usuarios/$1.sh
