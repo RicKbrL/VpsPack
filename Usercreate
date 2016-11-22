@@ -11,7 +11,7 @@ then
 		echo -e "\033[1;31mUsuario $name ja existe\033[0m"
 	else
 		datexp=$(date "+%d/%m/%Y" -d "+ $daysrnf days")
-		useradd -e $datexp -M -s /bin/false $name
+		useradd -M -s /bin/false $name -e $datexp
 		(echo $pass; echo $pass)|passwd $name 2>/dev/null
 		echo -e "\033[1;36mUsuario: \033[0m$name"
 		echo -e "\033[1;36mSenha: \033[0m$pass"
