@@ -49,3 +49,5 @@ chmod +x /bin/$arqs
 done
 echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
 fi
+
+rm -rf install 2> /dev/null
