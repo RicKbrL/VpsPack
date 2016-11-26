@@ -5,7 +5,7 @@ while true; do
 echo -e "\033[1;37m - - - - - - - - - - - - - - - - - - - - - - - - - - - -\033[0m"
 echo -e " \033[47;30m   Usuario                :               Conexoes S   \033[0m"
 echo -e "\033[1;37m - - - - - - - - - - - - - - - - - - - - - - - - - - - -\033[0m"
-        for usur in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody"`; do
+        for usur in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi systemd-[a-z] |grep -v systemd-[0-9]`; do
 	usurnum=$(ps aux | grep $usur |grep 'sshd' |awk {'print $1'} |grep -vi [a-z]$usur |grep -vi $usur[a-z] |grep -v [0-9]$usur |grep -v $usur[0-9] |grep $usur |wc -l)
         echo -e "\033[1;33m    $(printf '%-42s%s' $usur $usurnum) \033[0m"
         echo -e "\033[1;37m - - - - - - - - - - - - - - - - - - - - - - - - - - - -\033[0m"
