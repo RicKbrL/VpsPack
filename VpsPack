@@ -7,7 +7,7 @@ else
 	if echo $(id) |grep sudo > /dev/null
 	then
 	clear
-	echo "Voce não é root mais"
+	echo "Voce não é root"
 	echo "Seu usuario esta no grupo sudo"
 	echo -e "Para virar root execute \033[1;31msudo su\033[0m"
 	exit
@@ -19,7 +19,7 @@ else
 fi
 
 echo -e "     \033[40;1;37m  VpsPacket  By Luiz Henrique \033[0m"
-echo -e "\033[1;32mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
+echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
 [2] UserCreate \033[1;30m(Criar usuarios)\033[1;33m
 [3] UserRedefine \033[1;30m(Opções para mudanças no usuario)\033[1;33m
