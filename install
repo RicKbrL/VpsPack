@@ -1,0 +1,30 @@
+#!/bin/bash
+if yum -y update
+then
+yum -y update
+yum -y install git
+git clone https://github.com/RicKbrL/VpsPack.git
+clear
+cd VpsPack
+rm README.md
+for arqs in `ls`
+do
+rm /bin/$arqs 2>/dev/null
+mv $arqs /bin
+chmod +x /bin/$arqs
+done
+echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
+else
+apt-get update
+apt-get install -y git
+git clone https://github.com/RicKbrL/VpsPack.git
+clear
+cd VpsPack
+rm README.md
+for arqs in `ls`
+do
+rm /bin/$arqs 2>/dev/null
+mv $arqs /bin
+chmod +x /bin/$arqs
+done
+echo -e "\033[1;33mConcluido, Execute o comando \033[1;32mVpsPack\033[1;33m como root \033[0m"
