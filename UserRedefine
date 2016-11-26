@@ -19,7 +19,6 @@ read -p "Qual o novo limite de logins: " liml
 rm /etc/usuarios/$namer.sh
 rm /etc/tempo/$namer.sh
 limit $namer $liml
-echo -e "\033[1;31mLimite aplicado\033[0m"
 exit 0
 fi
 
