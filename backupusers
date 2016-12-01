@@ -1,0 +1,28 @@
+#!/bin/bash
+clear
+echo -e "\033[1;37mFazendo Backup de Usuarios...\033[0m"
+for user in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9]`
+do
+if [ -e /etc/VpsPackdir/senha/$user ]
+then
+pass=$(cat /etc/VpsPackdir/senha/$user)
+else
+echo -e "\033[1;31mNão foi possivel ter a senha do usuario\033[1;37m ($user)"
+read -p "Digite a Senha Manualmente ou Tecle ENTER: " pass
+fi
+
+if [ -e /etc/VpsPackdir/limite/$user ]
+then
+limite=$(cat /etc/VpsPackdir/limite/$user)
+echo "$user:$pass:$limite" >> /etc/VpsPackdir/backup
+echo -e "\033[1;37mUser $user Backup [\033[1;31mOK\033[1;37m]\033[0m"
+else
+echo "$user:$pass" >> /etc/VpsPackdir/backup
+echo -e "\033[1;37mUser $user Backup [\033[1;31mOK\033[1;37m]\033[0m"
+fi
+done
+echo " "
+echo -e "\033[1;31mBackup Completo !!!\033[0m"
+echo " "
+echo -e "\033[1;37mAS informações sobre usuarios ficam no arquivo \033[1;31m /etc/VpsPackdir/backup \033[1;37m
+Guarde os Para uma futura Restauração\033[0m"
