@@ -1,0 +1,49 @@
+#!/bin/bash
+
+mkdir /etc/usuarios 1>/dev/null 2>/dev/null
+userrc=$1
+sustenido=$
+
+echo "#!/bin/bash" > /etc/usuarios/$1.sh
+echo ""$1"t="$sustenido"(ps -u $1 |grep 'sshd' |wc -l)" >> /etc/usuarios/$1.sh
+echo "if [ "$sustenido""$1"t -gt $2 ]" >> /etc/usuarios/$1.sh
+echo "then" >> /etc/usuarios/$1.sh
+echo $1"pidi="$sustenido"(ps -u $1 |grep sshd |awk {'print "$sustenido"1'})" >> /etc/usuarios/$1.sh
+echo "echo "$sustenido""$1"pidi >> /etc/usuarios/pid$userrc" >> /etc/usuarios/$1.sh
+echo $1"pid="$sustenido"(cat -n /etc/usuarios/pid$userrc |awk ' "$sustenido"1 > $2 { print "$sustenido"3 }')" >> /etc/usuarios/$1.sh
+echo "kill -9 "$sustenido""$1"pid" >> /etc/usuarios/$1.sh
+echo "fi" >> /etc/usuarios/$1.sh
+
+mkdir /etc/tempo 1>/dev/null 2>/dev/null
+
+echo "#!/bin/bash" > /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+echo "sleep 5s" >> /etc/tempo/$1.sh
+echo "bash /etc/usuarios/"$1".sh" >> /etc/tempo/$1.sh
+
+echo "$2" > /etc/VpsPackdir/limite/$1
+
+echo "*/1 * * * * root bash /etc/tempo/$1.sh" >> /etc/crontab
+echo "#" >> /etc/crontab
+echo -e "\033[1;37m  Usuario: $1 Limite: $2  \033[0m"
+echo -e "\033[1;31m  Limite Aplicado\033[0m"
