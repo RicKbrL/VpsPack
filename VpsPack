@@ -18,6 +18,28 @@ else
 	fi
 fi
 
+if [ -d /etc/VpsPackdir ]
+then
+echo ""
+else
+mkdir /etc/VpsPackdir
+fi
+
+if [ -d /etc/VpsPackdir/senha ]
+then
+echo ""
+else
+mkdir /etc/VpsPackdir/senha
+fi
+
+if [ -d /etc/VpsPackdir/limite ]
+then
+echo ""
+else
+mkdir /etc/VpsPackdir/limite
+fi
+
+clear
 echo -e "     \033[40;1;37m  VpsPacket  By Luiz Henrique  \033[0m"
 echo -e "\033[1;37mEscolha uma das opçoẽs:    \033[1;37mPara Sair Ctrl + C\033[1;33m
 [1] Limit \033[1;30m(limite de conexoes simultaneas)\033[1;33m
