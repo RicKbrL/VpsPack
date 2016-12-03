@@ -11,7 +11,7 @@ echo "then" >> /etc/usuarios/$1.sh
 echo $1"pidi="$sustenido"(ps -u $1 |grep sshd |awk {'print "$sustenido"1'})" >> /etc/usuarios/$1.sh
 echo 'echo "'$sustenido''$1''pidi'" > /etc/usuarios/pid'$userrc >> /etc/usuarios/$1.sh
 echo $1"pid="$sustenido"(cat -n /etc/usuarios/pid$userrc |awk ' "$sustenido"1 > $2 { print "$sustenido"NF }')" >> /etc/usuarios/$1.sh
-echo 'kill -9 "'$sustenido''$1'pid"' >> /etc/usuarios/$1.sh
+echo "kill -9 $sustenido"$1"pid" >> /etc/usuarios/$1.sh
 echo "fi" >> /etc/usuarios/$1.sh
 
 mkdir /etc/tempo 1>/dev/null 2>/dev/null
