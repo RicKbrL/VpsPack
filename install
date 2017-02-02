@@ -21,7 +21,9 @@ else
 fi
 
 
-if yum -y update
+
+yum=$(which yum)
+if [ "$yum" ]
 then
 yum -y update
 yum -y install git
