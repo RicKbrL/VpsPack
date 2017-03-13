@@ -4,7 +4,7 @@ echo -e "\033[1;33mUserback options:\033[1;30m
 1) Deletar usuario
 2) Deletar e desconectar todos do usuario
 3) Desconectar todos do usuario\033[0m"
-read -p "opção: " option
+read -p ": " option
  if [ $option -eq 1 ]; then
  read -p "Qual o nome do usuario: " name
  userdel --force $name > /dev/null 2>/dev/null
