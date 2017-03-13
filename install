@@ -24,3 +24,4 @@ echo -e "\033[1;32mcriarusuario \033[1;30mCriar usuario com data e limite"
 echo -e "\033[1;32mdeletarusuario \033[1;30mDeletar usuario ou apenas desconectar"
 echo -e "\033[1;32mredefinirusuario \033[1;30mAlterar data, senha, etc, de um usuario"
 echo -e "\033[1;32mlimit \033[1;30mLimite de logins simultaneos\033[0m"
+rm -rf install
