@@ -1,0 +1,9 @@
+#!/bin/bash
+userrc=$(echo $1 |sed 's/-/k/g' |sed 's/0/a/g' |sed 's/1/b/g' |sed 's/2/c/g' |sed 's/3/d/g' |sed 's/4/e/g' |sed 's/5/f/g' |sed 's/6/g/g' |sed 's/7/h/g' |sed 's/8/i/g' |sed 's/9/j/g')
+limpcron=$(cat /etc/crontab |grep -v "#$1#")
+echo "$limpcron" > /etc/crontab
+echo "for ((""$userrc""cont=0;"'$'"$userrc"'cont < 14;'"$userrc"'cont++)) do if [ $(ps -u '$1' |grep sshd |wc -l) -gt '$2' ]; then ps -u '$1' |grep sshd |awk {'"'"'print $1'"'"'} > /tmp/sshpid'$1'; kill "$(cat -n /tmp/sshpid'$1' |awk '"'"'$1 > '$2' {print $2}'"'"')"; fi; sleep 4s; done #'$1'#' > /etc/VpsPackdir/limite/$1.sh
+echo "*/1 * * * * root bash /etc/VpsPackdir/limite/$1.sh #$1#" >> /etc/crontab
+echo -e "\033[1;37mUsuario: \033[1;31m[\033[1;37m$1\033[1;31m]\033[1;37m Limite: \033[1;31m[\033[1;37m$2\033[1;31m] \033[1;37m[\033[1;31mLimite Aplicado\033[1;37m]  \033[0m" 
+echo "$2" > /etc/VpsPackdir/limite/$1
+
