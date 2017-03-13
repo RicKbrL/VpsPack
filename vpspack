@@ -321,7 +321,7 @@ echo -e "\033[1;32mDerivado do Antecedente OS: \033[0m$devlike"
 fi
 else
 echo -e "\n\033[1;30mSistema Operacional\033[0m"
-echo "Não foi possivel encontrar /proc/lsb-release"
+echo "Não foi possivel encontrar /etc/lsb-release"
 fi
 if free 1>/dev/null 2>/dev/null
 then
