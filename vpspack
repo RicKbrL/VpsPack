@@ -655,7 +655,7 @@ case $opcao in
   4 | 04 )
    removerexpirados;;
   5 | 05 )
-   criarteste;;
+   criarusuarioteste;;
   6 | 06 )
    badvpn;;
   7 | 07 )
