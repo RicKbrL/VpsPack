@@ -610,6 +610,8 @@ echo "$user Deletado"
 done
 }
 clear
+if [[ $1 == "" ]]
+then
 echo -e "\033[1;37m       VpsPack V2 © RicKUX \033[0m"
 echo -e "\033[1;37mEscolha uma opção:    Para Sair Ctrl + C\033[1;33m
 [\033[1;30m01\033[1;33m] Configurar_Squid_SSH \033[1;30m(Squid e openssh configuração)\033[1;33m
@@ -638,6 +640,9 @@ echo -e "\033[1;37mEscolha uma opção:    Para Sair Ctrl + C\033[1;33m
 [\033[1;30m24\033[1;33m] Deletar_Todos \033[1;30m(Todos os usuarios serão deletados)\033[1;33m
 [\033[1;30m25\033[1;33m] Desinstalar \033[1;30m(Remover VpsPack)\033[0m"
 read -p ": " opcao
+else
+opcao=$1
+fi
 case $opcao in
   1 | 01 )
    configurarsquid;;
