@@ -18,7 +18,7 @@ then
 		echo -e "\033[1;36mUsuario: \033[0m$name"
 		echo -e "\033[1;36mSenha: \033[0m$pass"
 		echo -e "\033[1;36mExpira:\033[0m $datexp"
-	    echo "$pass" > /etc/gerenciadorinfo/senha/$name
+	    echo "$pass" > /etc/VpsPackdir/senha/$name
 	fi
 else
 	if echo $(id) |grep sudo > /dev/null
