@@ -344,7 +344,7 @@ echo -e "\033[1;37m -------------------------------------------------------\033[
 echo -e " \033[47;30m   Usuario                :               Conexoes S   \033[0m"
 echo -e "\033[1;37m -------------------------------------------------------\033[0m"
 for usur in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
-if [ -f /etc/gerenciadorinfo/limite/$usur ]; then
+if [ -f /etc/VpsPackdir/limite/$usur ]; then
 limite=$(cat -n /etc/VpsPackdir/limite/$usur |awk '$1 = 1 {print $2}')
 else
 limite=null
