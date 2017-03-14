@@ -345,7 +345,7 @@ echo -e " \033[47;30m   Usuario                :               Conexoes S   \033
 echo -e "\033[1;37m -------------------------------------------------------\033[0m"
 for usur in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |grep -v "nobody" |grep -vi polkitd |grep -vi systemd-[a-z] |grep -vi systemd-[0-9] |sort`; do
 if [ -f /etc/gerenciadorinfo/limite/$usur ]; then
-limite=$(cat -n /etc/gerenciadorinfo/limite/$usur |awk '$1 = 1 {print $2}')
+limite=$(cat -n /etc/VpsPackdir/limite/$usur |awk '$1 = 1 {print $2}')
 else
 limite=null
 fi
@@ -524,16 +524,16 @@ echo -e "\033[1;30m-------------------------------------------------------------
 for users in `awk -F : '$3 > 900 { print $1 }' /etc/passwd |sort |grep -v "nobody" |grep -vi polkitd |grep -vi system-`
 do
 
-if cat /etc/gerenciadorinfo/limite/$users > /dev/null 2> /dev/null
+if cat /etc/VpsPackdir/limite/$users > /dev/null 2> /dev/null
 then
-limitecs=$(cat /etc/gerenciadorinfo/limite/$users)
+limitecs=$(cat /etc/VpsPackdir/limite/$users)
 else
 limitecs="null"
 fi
 
-if  senha=$(cat /etc/gerenciadorinfo/senha/$users > /dev/null 2> /dev/null)
+if  senha=$(cat /etc/VpsPackdir/senha/$users > /dev/null 2> /dev/null)
 then
-senha=$(cat /etc/gerenciadorinfo/senha/$users)
+senha=$(cat /etc/VpsPackdir/senha/$users)
 else
 senha="null"
 fi
