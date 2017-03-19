@@ -78,6 +78,7 @@ echo -e "\n\033[1;32mHost Removido\033[0m"
 }
 function payloads(){ echo ".claro.com.br
 .claro.com.sv
+.vivo.com.br
 .ddivulga.com" > /etc/payloads
 }
 
