@@ -46,13 +46,12 @@ echo -e "\033[1;31m-----> \033[1;37mSSH NAS PORTAS: \033[1;31m443, 22\033[0m"
 echo -e "\033[1;31m-----> \033[1;37mSSH NOS IPS: \033[1;31m$ip, localhost, 127.0.0.1\033[0m"
 echo -e "\033[1;31m-----> \033[1;37mFERRAMENTA ADICIONAR DOMINIOS:\033[1;31m addhost\033[0m"
 
-function sshd_config(){ echo "Port 22
-Port 443
-Protocol 2
+function sshd_config(){ 
+echo 'Port 443
 PermitRootLogin yes
 PubkeyAuthentication yes
 PasswordAuthentication yes
-" >> /etc/ssh/sshd_config
+' >> /etc/ssh/sshd_config
 }
 
 function addihost(){ echo '#!/bin/bash
