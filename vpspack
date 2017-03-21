@@ -409,7 +409,7 @@ Apos o tempo expirar o usuario sera deletado e todos serão desconectados."
 bash /etc/usuariosteste/$nome.sh &
 exit
 }
-function badvpn(){
+function badvpn_install(){
 wget https://raw.githubusercontent.com/RicKbrL/VpsConf/master/badvpn.sh && bash badvpn.sh
 }
 function removerlimite(){
@@ -657,7 +657,7 @@ case $opcao in
   5 | 05 )
    criarusuarioteste;;
   6 | 06 )
-   badvpn;;
+   badvpn_install;;
   7 | 07 )
    badvpn start;;
   8 | 08 )
