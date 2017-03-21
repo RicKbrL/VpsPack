@@ -446,7 +446,7 @@ done
 echo " "
 echo -e "\033[1;31mBackup Completo !!!\033[0m"
 echo " "
-echo -e "\033[1;37mAs informações sobre usuarios ficam no arquivo \033[1;31m /etc/gerenciadorinfo/backup \033[1;37m
+echo -e "\033[1;37mAs informações sobre usuarios ficam no arquivo \033[1;31m /etc/VpsPackdir/backup \033[1;37m
 Guarde os Para uma futura Restauração\033[0m"
 }
 function mudarnome(){
