@@ -422,6 +422,8 @@ rm -rf /etc/VpsPackdir/limite/$user.sh 2>/dev/null
 pids=$(ps x |grep "#$user#" |awk {'print $1'})
 kill $pids 2>/dev/null
 kill "$pids" 2>/dev/null
+kill -9 `ps x |grep "#$user#" |awk {'print $1'}` 2>/dev/null
+kill `ps x |grep "#$user#" |awk {'print $1'}` 2>/dev/null
 echo -e "\033[1;37mUsuario: $user, Limite removido\033[0m"
 }
 function backup_de_usuarios(){
