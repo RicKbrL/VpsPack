@@ -417,7 +417,8 @@ echo -ne "\033[1;32mQual usuario a retirar o limite: \033[0m"
 read user
 cronsemuser=$(cat /etc/crontab |grep -v "#$user#")
 echo "$cronsemuser" > /etc/crontab
-rm -rf /etc/VpsPackdir/limite/$user* 2>/dev/null
+rm -rf /etc/VpsPackdir/limite/$user 2>/dev/null
+rm -rf /etc/VpsPackdir/limite/$user.sh 2>/dev/null
 echo -e "\033[1;37mUsuario: $user, Limite removido\033[0m"
 }
 function backup_de_usuarios(){
