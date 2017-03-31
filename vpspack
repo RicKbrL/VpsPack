@@ -558,8 +558,8 @@ echo -e "\033[1;30m-------------------------------------------------------------
 done
 }
 function restaurar_usuarios(){
-arq=$1
-clear
+echo -n "Digite o diretorio do arquivo Backup: "
+read arq
 echo -e "\033[1;37mRestaurando Usuarios...\033[0m"
 
 for user in `cat $arq`
@@ -689,8 +689,7 @@ case $opcao in
   18)
    backup_de_usuarios;;
   19)
-   read -p "Digite o diretorio do arquivo backup: " arq
-   restaurar_usuarios $arq;;
+   restaurar_usuarios;;
   20)
    detalhes_usuarios;;
   21)
