@@ -689,7 +689,8 @@ case $opcao in
   18)
    backup_de_usuarios;;
   19)
-   restaurar_usuarios;;
+   read -p "Digite o diretorio do arquivo backup: " arq
+   restaurar_usuarios $arq;;
   20)
    detalhes_usuarios;;
   21)
