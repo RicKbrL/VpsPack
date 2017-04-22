@@ -7,6 +7,10 @@ echo -e "\033[1;33mUserback options:\033[1;30m
 read -p ": " option
  if [ $option -eq 1 ]; then
  read -p "Qual o nome do usuario: " name
+ if [ $(cat /etc/passwd |grep "^$name:" |wc -l) -eq 0 ]; then
+ echo "Usuario não existe"
+ exit
+ fi
  userdel --force $name > /dev/null 2>/dev/null
  echo "Usuario $name foi deletado"
  exit
@@ -14,6 +18,10 @@ read -p ": " option
 
  if [ $option -eq 2 ]; then
  read -p "Qual o nome do usuario: " name
+ if [ $(cat /etc/passwd |grep "^$name:" |wc -l) -eq 0 ]; then
+ echo "Usuario não existe"
+ exit
+ fi
  pids=$(ps -u $name |awk {'print $1'})
  kill "$pids" >/dev/null 2>/dev/null
  userdel $name 1>/dev/null 2>/dev/null
@@ -23,6 +31,10 @@ read -p ": " option
 
  if [ $option -eq 3 ]; then
  read -p "Qual o nome do usuario: " name
+ if [ $(cat /etc/passwd |grep "^$name:" |wc -l) -eq 0 ]; then
+ echo "Usuario não existe"
+ exit
+ fi
  pids=$(ps -u $name |awk {'print $1'})
  kill "$pids" >/dev/null 2>/dev/null
  echo "Usuario $name foi parado"
