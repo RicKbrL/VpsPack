@@ -13,7 +13,7 @@ then
 		valid=$(date '+%C%y-%m-%d' -d " +$daysrnf days")
 		datexp=$(date "+%d/%m/%Y" -d "+ $daysrnf days")
 		useradd -M -s /bin/false $name -e $valid
-		(echo $pass; echo $pass)|passwd $name 2>/dev/null
+		( echo "$pass";echo "$pass" ) | passwd haha 2> /dev/null
 		limite $name $limiteuser
 		echo -e "\033[1;36mUsuario: \033[0m$name"
 		echo -e "\033[1;36mSenha: \033[0m$pass"
