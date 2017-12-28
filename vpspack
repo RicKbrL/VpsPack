@@ -618,7 +618,7 @@ done
 clear
 if [[ $1 == "" ]]
 then
-echo -e "\033[1;37m       VpsPack V2 © RicKUX \033[0m"
+echo -e "\033[1;37m       VpsPack V2 © US \033[0m"
 echo -e "\033[1;37mEscolha uma opção:    Para Sair Ctrl + C\033[1;33m
 [\033[1;30m01\033[1;33m] Configurar_Squid_SSH \033[1;30m(Squid e openssh configuração)\033[1;33m
 [\033[1;30m02\033[1;33m] Limite \033[1;30m(limite de conexoes simultaneas)\033[1;33m
