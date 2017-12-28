@@ -38,7 +38,7 @@ echo -e "\033[1;31mPara a instalação ser correta é preciso o ip.
 Digite o ip !\033[0m"
 read -p ": " ip
 clear
-echo -e "\033[1;31m-----> \033[01;37mScript Feito por Luiz Henrique (Unix SSH)\033[0m"
+echo -e "\033[1;31m-----> \033[01;37mScript Feito por (Unix SSH)\033[0m"
 echo -e "\033[1;31m-----> \033[01;37mSeu sistema operacional:\033[1;31m $sistema"
 echo -e "\033[1;31m-----> \033[01;37mSeu ip:\033[1;31m $ip"
 echo -e "\033[1;31m-----> \033[1;37mSQUID NAS PORTAS:\033[1;31m 80, 8080, 8799, 3128\033[0m"
